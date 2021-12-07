@@ -108,7 +108,7 @@ int main(int argc, char* argv_ansi[])
         _setmode(_fileno(stderr), _O_U8TEXT);
         CLI_Option_Bom=false;
     #endif
-    MediaInfo::Option_Static(__T("LineSeparator"), __T("\n")); //Using sdtout
+    MediaInfo::Option_Static(__T("LineSeparator"), __T("\n")); //Using stdout
 
     //Configure MediaInfo core
     Core MI;
