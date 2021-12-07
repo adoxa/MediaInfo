@@ -96,7 +96,11 @@ void __stdcall Event_CallBackFunction(unsigned char* Data_Content, size_t Data_S
 // Main
 //***************************************************************************
 
+#if defined(UNICODE) && defined(_WIN32) && defined(_MSC_VER)
+int wmain(int argc, wchar_t* argv_ansi[])
+#else
 int main(int argc, char* argv_ansi[])
+#endif
 {
     //Localisation
     setlocale(LC_ALL, "");

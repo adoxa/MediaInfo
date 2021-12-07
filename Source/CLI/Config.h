@@ -20,8 +20,15 @@
 //Get command line args in main()
 #ifdef UNICODE
     #ifdef _WIN32
-        #define GETCOMMANDLINE() \
-            MediaInfoNameSpace::Char** argv=CommandLineToArgvW(GetCommandLineW(), &argc); \
+        #ifdef _MSC_VER
+           #define GETCOMMANDLINE() \
+               MediaInfoNameSpace::Char** argv=argv_ansi; \
+
+        #else
+           #define GETCOMMANDLINE() \
+               MediaInfoNameSpace::Char** argv=CommandLineToArgvW(GetCommandLineW(), &argc); \
+
+        #endif
 
     #else //WIN32
         #define GETCOMMANDLINE() \
